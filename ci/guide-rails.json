@@ -100,7 +100,7 @@
 							{
 								"name": "build",
 								"definition": "build",
-								"command": "mvn compile\n",
+								"command": "mvn compile\nls\n",
 								"properties": null
 							},
 							{
@@ -196,8 +196,7 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
-						"cloud_provider_name": "guide-rails-gcp-us-west2",
-						"vm_type": "default",
+						"cloud_provider_name": "guide-rails-gcp-us-east1",
 						"os_type": "default",
 						"networks": [
 							"integration"
@@ -357,8 +356,7 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
-						"cloud_provider_name": "guide-rails-gcp-us-west2",
-						"vm_type": "default",
+						"cloud_provider_name": "guide-rails-gcp-us-east1",
 						"os_type": "default",
 						"networks": [
 							"release"
@@ -504,8 +502,7 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
-						"cloud_provider_name": "guide-rails-gcp-us-west2",
-						"vm_type": "default",
+						"cloud_provider_name": "guide-rails-gcp-us-east1",
 						"os_type": "default",
 						"networks": [
 							"production"
