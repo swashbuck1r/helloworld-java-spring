@@ -4,7 +4,7 @@
 	},
 	"application": {
 		"name": "simple-hello-world-java",
-		"language": "JAVA_MAVEN",
+		"language": "JAVA",
 		"artifact_store": {
 			"type": "s3",
 			"repositories": [
@@ -196,10 +196,15 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
+						"cloud_provider_type": "vsphere",
 						"cloud_provider_name": "guide-rails-gcp-us-east1",
+						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
 							"integration"
+						],
+						"availability_zones": [
+							"default"
 						],
 						"deployment_strategy": {},
 						"dependencies": [
@@ -266,7 +271,8 @@
 						"UnhealthyThresholdCount": 0
 					}
 				},
-				"cache_info": {}
+				"cache_info": {},
+				"deployment_target": 1
 			},
 			{
 				"name": "Release",
@@ -356,10 +362,15 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
+						"cloud_provider_type": "vsphere",
 						"cloud_provider_name": "guide-rails-gcp-us-east1",
+						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
 							"release"
+						],
+						"availability_zones": [
+							"default"
 						],
 						"deployment_strategy": {},
 						"dependencies": [
@@ -425,7 +436,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"deployment_target": 1
 			},
 			{
 				"name": "Production",
@@ -502,10 +514,15 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
+						"cloud_provider_type": "vsphere",
 						"cloud_provider_name": "guide-rails-gcp-us-east1",
+						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
 							"production"
+						],
+						"availability_zones": [
+							"default"
 						],
 						"deployment_strategy": {},
 						"dependencies": [
@@ -572,7 +589,8 @@
 						"UnhealthyThresholdCount": 0
 					}
 				},
-				"cache_info": {}
+				"cache_info": {},
+				"deployment_target": 1
 			}
 		],
 		"exit_actions": {
