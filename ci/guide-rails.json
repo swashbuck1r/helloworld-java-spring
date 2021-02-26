@@ -100,7 +100,7 @@
 							{
 								"name": "build",
 								"definition": "build",
-								"command": "mvn compile",
+								"command": "mvn compile\nls",
 								"properties": null
 							},
 							{
@@ -277,6 +277,7 @@
 			{
 				"name": "Release",
 				"segment_type": "release",
+				"persistent": true,
 				"run_after": [
 					"Integration"
 				],
