@@ -100,7 +100,7 @@
 							{
 								"name": "build",
 								"definition": "build",
-								"command": "mvn compile\nls\n",
+								"command": "mvn compile\n",
 								"properties": null
 							},
 							{
