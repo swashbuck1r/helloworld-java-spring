@@ -4,7 +4,7 @@
 	},
 	"application": {
 		"name": "simple-hello-world-java",
-		"language": "JAVA_MAVEN",
+		"language": "JAVA",
 		"artifact_store": {
 			"type": "s3",
 			"repositories": [
@@ -79,18 +79,7 @@
 					}
 				],
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
-					}
+					"loadbalancer": {}
 				},
 				"cache_info": {},
 				"tasks": [
@@ -196,8 +185,8 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
-						"cloud_provider_type": "vsphere",
-						"cloud_provider_name": "guide-rails-gcp-us-east1",
+						"cloud_provider_type": "aws",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
@@ -241,16 +230,16 @@
 										"value": "false"
 									},
 									{
-										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
-									},
-									{
 										"name": "calculi.intermediate.cert",
 										"value": "grsecret:tls.cert"
 									},
 									{
 										"name": "calculi.intermediate.key",
 										"value": "grsecret:tls.key"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
 									}
 								]
 							}
@@ -258,21 +247,16 @@
 					}
 				],
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
-					}
+					"loadbalancer": {}
 				},
 				"cache_info": {},
-				"deployment_target": 1
+				"deployment_target": 1,
+				"releases": [
+					{
+						"name": "consul",
+						"version": "latest"
+					}
+				]
 			},
 			{
 				"name": "Release",
@@ -363,8 +347,8 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
-						"cloud_provider_type": "vsphere",
-						"cloud_provider_name": "guide-rails-gcp-us-east1",
+						"cloud_provider_type": "aws",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
@@ -425,20 +409,15 @@
 					}
 				],
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
-					}
+					"loadbalancer": {}
 				},
-				"deployment_target": 1
+				"deployment_target": 1,
+				"releases": [
+					{
+						"name": "consul",
+						"version": "latest"
+					}
+				]
 			},
 			{
 				"name": "Production",
@@ -515,8 +494,8 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
-						"cloud_provider_type": "vsphere",
-						"cloud_provider_name": "guide-rails-gcp-us-east1",
+						"cloud_provider_type": "aws",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
@@ -577,21 +556,16 @@
 					}
 				],
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
-					}
+					"loadbalancer": {}
 				},
 				"cache_info": {},
-				"deployment_target": 1
+				"deployment_target": 1,
+				"releases": [
+					{
+						"name": "consul",
+						"version": "latest"
+					}
+				]
 			}
 		],
 		"exit_actions": {
@@ -640,13 +614,7 @@
 			"init": {
 				"command": "bin/start-service.sh"
 			}
-		},
-		"releases": [
-			{
-				"name": "consul",
-				"version": "latest"
-			}
-		]
+		}
 	},
 	"organization": {
 		"orgname": "Tutorial"
