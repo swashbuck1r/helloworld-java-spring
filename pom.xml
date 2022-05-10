@@ -7,7 +7,7 @@
 		com.javacodegeeks.example
 	</groupId>
 	<artifactId>
-		HelloWorld
+		helloworld-java-spring
 	</artifactId>
 	<version>
 		0.0.1-SNAPSHOT
