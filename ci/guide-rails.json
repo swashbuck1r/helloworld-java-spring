@@ -4,7 +4,7 @@
 	},
 	"application": {
 		"name": "simple-hello-world-java",
-		"language": "JAVA",
+		"language": "JAVA_MAVEN",
 		"artifact_store": {
 			"type": "s3",
 			"repositories": [
@@ -126,14 +126,6 @@
 				"run_after": [
 					"Build"
 				],
-				"job_steps": [
-					{
-						"name": "perform test",
-						"definition": "perform test",
-						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
-						"properties": null
-					}
-				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
@@ -250,6 +242,19 @@
 					"loadbalancer": {}
 				},
 				"cache_info": {},
+				"tasks": [
+					{
+						"name": "simple-hello-world-java",
+						"steps": [
+							{
+								"name": "perform test",
+								"definition": "perform test",
+								"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
+								"properties": null
+							}
+						]
+					}
+				],
 				"deployment_target": 1,
 				"releases": [
 					{
@@ -264,14 +269,6 @@
 				"persistent": true,
 				"run_after": [
 					"Integration"
-				],
-				"job_steps": [
-					{
-						"name": "perform tests again",
-						"definition": "perform tests again",
-						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
-						"properties": null
-					}
 				],
 				"exit_actions": {
 					"default": {
@@ -411,6 +408,19 @@
 				"post_deployment_actions": {
 					"loadbalancer": {}
 				},
+				"tasks": [
+					{
+						"name": "simple-hello-world-java",
+						"steps": [
+							{
+								"name": "perform tests again",
+								"definition": "perform tests again",
+								"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
+								"properties": null
+							}
+						]
+					}
+				],
 				"deployment_target": 1,
 				"releases": [
 					{
@@ -425,20 +435,6 @@
 				"persistent": true,
 				"run_after": [
 					"Release"
-				],
-				"job_steps": [
-					{
-						"name": "perform prod test",
-						"definition": "perform prod test",
-						"command": "bin/integration-test.sh \u003e ${APPLICATION_LOGS_DIR}/output.txt",
-						"properties": null
-					},
-					{
-						"name": "get prod IP",
-						"definition": "get prod IP",
-						"command": "ip a",
-						"properties": null
-					}
 				],
 				"exit_actions": {
 					"default": {
@@ -559,6 +555,25 @@
 					"loadbalancer": {}
 				},
 				"cache_info": {},
+				"tasks": [
+					{
+						"name": "simple-hello-world-java",
+						"steps": [
+							{
+								"name": "perform prod test",
+								"definition": "perform prod test",
+								"command": "bin/integration-test.sh \u003e ${APPLICATION_LOGS_DIR}/output.txt",
+								"properties": null
+							},
+							{
+								"name": "get prod IP",
+								"definition": "get prod IP",
+								"command": "ip a",
+								"properties": null
+							}
+						]
+					}
+				],
 				"deployment_target": 1,
 				"releases": [
 					{
